@@ -4,13 +4,19 @@
 
 ## 运行方式
 
-直接在浏览器中打开 `index.html`，或在当前目录启动静态服务：
+### 方式 1：直接打开
+
+直接在浏览器中打开 `index.html`。
+
+### 方式 2：使用内置 Node 静态服务（推荐）
 
 ```bash
-python3 -m http.server 8000
+npm start
 ```
 
-然后访问 <http://localhost:8000>。
+启动后访问 <http://localhost:8000>。
+
+> 如果你之前使用 `python3 -m http.server` 出现 `not found`，可以直接用上面的 `npm start`，不依赖 Python。
 
 ## 操作说明
 
