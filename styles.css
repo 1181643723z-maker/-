@@ -3,10 +3,6 @@
   --panel: #192734;
   --text: #f2f5f8;
   --accent: #2ec4b6;
-  --snake: #2ec4b6;
-  --snake-head: #7df9ff;
-  --food: #ff6b6b;
-  --grid: rgba(255, 255, 255, 0.08);
 }
 
 * {
@@ -24,10 +20,10 @@ body {
 }
 
 .game-shell {
-  width: min(92vw, 460px);
+  width: min(94vw, 500px);
   padding: 1rem;
   border-radius: 12px;
-  background: rgba(14, 22, 32, 0.82);
+  background: rgba(14, 22, 32, 0.85);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
@@ -80,4 +76,39 @@ canvas {
   margin: 0.7rem 0 0;
   text-align: center;
   color: #c7d2de;
+}
+
+.touch-controls {
+  margin-top: 0.9rem;
+  display: none;
+  place-items: center;
+  gap: 0.5rem;
+}
+
+.touch-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.ctrl-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .hud {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #restart-btn {
+    grid-column: 1 / -1;
+  }
+
+  .touch-controls {
+    display: grid;
+  }
 }

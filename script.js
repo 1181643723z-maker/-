@@ -4,6 +4,7 @@ const scoreEl = document.getElementById("score");
 const bestScoreEl = document.getElementById("best-score");
 const statusEl = document.getElementById("status");
 const restartBtn = document.getElementById("restart-btn");
+const touchButtons = document.querySelectorAll(".ctrl-btn");
 
 const gridSize = 20;
 const tileCount = canvas.width / gridSize;
@@ -117,9 +118,7 @@ function draw() {
 }
 
 function tick() {
-  if (paused) {
-    return;
-  }
+  if (paused) return;
 
   direction = { ...nextDirection };
 
@@ -194,18 +193,15 @@ function setDirection(newDirection) {
 }
 
 function togglePause() {
-  if (!started) {
-    return;
-  }
+  if (!started) return;
+
   paused = !paused;
   statusEl.textContent = paused ? "游戏已暂停（按空格继续）" : "游戏进行中";
 }
 
-function handleMoveKey(key) {
+function applyMoveInput(key) {
   const newDirection = directionMap[key];
-  if (!newDirection) {
-    return;
-  }
+  if (!newDirection) return;
 
   if (!started) {
     resetGame();
@@ -216,14 +212,11 @@ function handleMoveKey(key) {
     return;
   }
 
-  if (!paused) {
-    setDirection(newDirection);
-  }
+  if (!paused) setDirection(newDirection);
 }
 
 document.addEventListener("keydown", (event) => {
   const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
-
   if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " ", "w", "a", "s", "d"].includes(key)) {
     event.preventDefault();
   }
@@ -233,7 +226,14 @@ document.addEventListener("keydown", (event) => {
     return;
   }
 
-  handleMoveKey(key);
+  applyMoveInput(key);
+});
+
+touchButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const key = button.dataset.dir;
+    applyMoveInput(key);
+  });
 });
 
 restartBtn.addEventListener("click", () => {

@@ -2,8 +2,8 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>贪吃蛇小游戏</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>贪吃蛇小游戏（网页端）</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -14,9 +14,20 @@
         <p>最高分：<span id="best-score">0</span></p>
         <button id="restart-btn" type="button">重新开始</button>
       </section>
+
       <canvas id="game" width="400" height="400" aria-label="贪吃蛇游戏画布"></canvas>
+
       <p id="status" class="status">按方向键开始游戏</p>
-      <p class="tips">操作：方向键 / WASD，空格暂停与继续。</p>
+      <p class="tips">电脑：方向键 / WASD；手机：点击下方方向按钮；空格可暂停。</p>
+
+      <section class="touch-controls" aria-label="触屏方向控制">
+        <button type="button" class="ctrl-btn" data-dir="ArrowUp">↑</button>
+        <div class="touch-row">
+          <button type="button" class="ctrl-btn" data-dir="ArrowLeft">←</button>
+          <button type="button" class="ctrl-btn" data-dir="ArrowDown">↓</button>
+          <button type="button" class="ctrl-btn" data-dir="ArrowRight">→</button>
+        </div>
+      </section>
     </main>
 
     <script src="script.js"></script>
