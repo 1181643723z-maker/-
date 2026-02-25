@@ -1,0 +1,114 @@
+:root {
+  --bg: #101820;
+  --panel: #192734;
+  --text: #f2f5f8;
+  --accent: #2ec4b6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, #213547, var(--bg));
+  color: var(--text);
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.game-shell {
+  width: min(94vw, 500px);
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(14, 22, 32, 0.85);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.hud p {
+  margin: 0;
+  background: var(--panel);
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 0.55rem 0.8rem;
+  background: var(--accent);
+  color: #053330;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+canvas {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  background: #0f1720;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status,
+.tips {
+  margin: 0.7rem 0 0;
+  text-align: center;
+  color: #c7d2de;
+}
+
+.touch-controls {
+  margin-top: 0.9rem;
+  display: none;
+  place-items: center;
+  gap: 0.5rem;
+}
+
+.touch-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.ctrl-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .hud {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #restart-btn {
+    grid-column: 1 / -1;
+  }
+
+  .touch-controls {
+    display: grid;
+  }
+}
